@@ -141,7 +141,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## 👨‍💻 Author
 
 **Shaik Arif**
-📧 [shaikarif.dev@gmail.com](mailto:shaikarief298@gmail.com)
+📧 [shaikarief298@gmail.com](mailto:shaikarief298@gmail.com)
 🌐 [GitHub Profile](https://github.com/shaik-arif-dev)
 
 ---
