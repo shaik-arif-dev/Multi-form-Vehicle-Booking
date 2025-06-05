@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <>
     <Header />
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" sx={{ mt: 16 }}>
       <h1 className="text-3xl font-bold text-center mt-6">Vehicle Booking System</h1>
       <Box display="flex" flexDirection="column" gap={2} mt={4} alignItems="center">
         <Button 

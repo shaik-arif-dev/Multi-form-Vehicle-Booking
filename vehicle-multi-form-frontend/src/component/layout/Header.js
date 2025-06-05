@@ -64,7 +64,9 @@ const Header = () => {
         sx={{ 
           bgcolor: 'background.paper',
           backdropFilter: 'blur(10px)',
-          background: 'rgba(255, 255, 255, 0.8)'
+          background: 'rgba(255, 255, 255, 0.8)',
+          boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.1)',
+          margin: '0 auto',
         }}
       >
         <Container maxWidth="xl">

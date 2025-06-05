@@ -56,7 +56,7 @@ const AllBookings = () => {
     <>
     <Header />
 
-    <Box sx={{ p: 3, maxWidth: 1200, mx: 'auto' }}>
+    <Box sx={{ p: 3, maxWidth: 1200, mx: 'auto', mt: 12 }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
         <Typography variant="h4" component="h1">
           All Bookings
@@ -64,7 +64,7 @@ const AllBookings = () => {
         <Button 
           variant="contained" 
           color="primary" 
-          onClick={() => window.location.href = '/'}
+          onClick={() => window.location.href = '/new-booking'}
         >
           New Booking
         </Button>
