@@ -1,15 +1,28 @@
 {
   "name": "express-vehicle-booking",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Vehicle Booking System using Node.js, Express.js, Sequelize, and PostgreSQL",
+  "main": "app.js",
+
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "sequelize": "sequelize"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "sequelize": "^6.32.1",
+    "mysql2": "^3.3.3",
+    "helmet": "^7.0.0",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0",
+    "sequelize-cli": "^6.6.1"
   }
 }
