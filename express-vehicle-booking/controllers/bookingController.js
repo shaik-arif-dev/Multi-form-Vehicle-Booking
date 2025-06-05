@@ -49,3 +49,14 @@ exports.createBooking = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+exports.getAllBookings = async (req, res) => {
+  try {
+    const bookings = await Booking.findAll({
+      include: [Vehicle]
+    });
+    res.json(bookings);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};

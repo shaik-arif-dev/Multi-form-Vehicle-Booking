@@ -5,6 +5,7 @@ import StepVehicleType from './StepVehicleType';
 import StepVehicleModel from './StepVehicleModel';
 import StepDateRange from './StepDateRange';
 import StepSummary from './StepSummary';
+import { Link } from 'react-router-dom';
 
 const StepForm = () => {
   const [step, setStep] = useState(1);
@@ -54,6 +55,7 @@ const StepForm = () => {
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+      <Link to="/">Back to Home</Link>
       {renderStep()}
     </div>
   );

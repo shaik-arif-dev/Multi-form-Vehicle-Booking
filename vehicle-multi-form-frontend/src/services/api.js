@@ -13,3 +13,13 @@ export const submitBooking = async (bookingData) => {
     throw error;
   }
 };
+
+export const getAllBookings = async () => {
+  try {
+    const response = await axios.get(`${API_BASE}/bookings`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+    throw error;
+  }
+};
