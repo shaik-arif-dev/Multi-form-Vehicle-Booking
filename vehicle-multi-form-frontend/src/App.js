@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, CssBaseline } from '@mui/material';
-import StepForm from './components/StepForm';
+import StepForm from './component/StepForm.js';
 
 function App() {
   return (
