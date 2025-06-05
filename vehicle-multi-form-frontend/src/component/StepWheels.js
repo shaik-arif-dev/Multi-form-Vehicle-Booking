@@ -1,41 +1,58 @@
 import React from 'react';
-import { Button, Radio, RadioGroup, FormControlLabel, Box, Typography } from '@mui/material';
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
+import { Button, Box, Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 
-const validationSchema = Yup.object({
-  wheels: Yup.string().required('Select wheels')
-});
+const StepWheels = ({ nextStep, handleDataChange, data }) => {
+  const [wheels, setWheels] = React.useState(data.wheels || 4);
 
-const StepWheels = ({ nextStep, prevStep, handleDataChange, data }) => {
-  const handleSubmit = (values) => {
-    handleDataChange(values);
+  const handleChange = (event) => {
+    const value = parseInt(event.target.value, 10);
+    setWheels(value);
+  };
+
+  const handleNext = () => {
+    handleDataChange({ wheels });
     nextStep();
   };
 
   return (
-    <Formik
-      initialValues={{ wheels: data.wheels }}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ errors, touched }) => (
-        <Form>
-          <Typography variant="h6" gutterBottom>Select Number of Wheels</Typography>
-          <Field as={RadioGroup} name="wheels">
-            <FormControlLabel value="2" control={<Radio />} label="2" />
-            <FormControlLabel value="4" control={<Radio />} label="4" />
-          </Field>
-          {touched.wheels && errors.wheels && (
-            <Box color="red" mb={2}>{errors.wheels}</Box>
-          )}
-          <Box mt={2} display="flex" justifyContent="space-between">
-            <Button onClick={prevStep}>Back</Button>
-            <Button type="submit" variant="contained">Next</Button>
-          </Box>
-        </Form>
-      )}
-    </Formik>
+    <Box sx={{ maxWidth: 600, mx: 'auto', p: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        Select Number of Wheels
+      </Typography>
+      
+      <Box mb={4} p={3} sx={{ border: '1px solid #e0e0e0', borderRadius: 1 }}>
+        <RadioGroup
+          row
+          aria-label="wheels"
+          name="wheels"
+          value={wheels}
+          onChange={handleChange}
+        >
+          <FormControlLabel 
+            value={2} 
+            control={<Radio />} 
+            label="2-Wheeler"
+            sx={{ mr: 3 }}
+          />
+          <FormControlLabel 
+            value={4} 
+            control={<Radio />} 
+            label="4-Wheeler"
+          />
+        </RadioGroup>
+      </Box>
+
+      <Box display="flex" justifyContent="flex-end">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleNext}
+          sx={{ minWidth: '120px' }}
+        >
+          Next
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

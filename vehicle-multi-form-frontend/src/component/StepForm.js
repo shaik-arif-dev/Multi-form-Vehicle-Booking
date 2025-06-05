@@ -11,7 +11,7 @@ const StepForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
-    wheels: '',
+    wheels: 4, // Default to 4 wheels
     vehicleType: '',
     vehicleId: '',
     startDate: null,
@@ -20,30 +20,41 @@ const StepForm = () => {
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
+  const goToStep = (stepNumber) => setStep(stepNumber);
 
   const handleDataChange = (input) => {
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       ...input
-    });
+    }));
   };
 
-  switch (step) {
-    case 1:
-      return <StepName nextStep={nextStep} handleDataChange={handleDataChange} data={formData} />;
-    case 2:
-      return <StepWheels nextStep={nextStep} prevStep={prevStep} handleDataChange={handleDataChange} data={formData} />;
-    case 3:
-      return <StepVehicleType nextStep={nextStep} prevStep={prevStep} handleDataChange={handleDataChange} data={formData} />;
-    case 4:
-      return <StepVehicleModel nextStep={nextStep} prevStep={prevStep} handleDataChange={handleDataChange} data={formData} />;
-    case 5:
-      return <StepDateRange nextStep={nextStep} prevStep={prevStep} handleDataChange={handleDataChange} data={formData} />;
-    case 6:
-      return <StepSummary prevStep={prevStep} data={formData} />;
-    default:
-      return null;
-  }
+  const renderStep = () => {
+    const commonProps = {
+      nextStep,
+      prevStep,
+      goToStep,
+      handleDataChange,
+      data: formData,
+      formData
+    };
+
+    switch (step) {
+      case 1: return <StepName {...commonProps} />;
+      case 2: return <StepWheels {...commonProps} />;
+      case 3: return <StepVehicleType {...commonProps} />;
+      case 4: return <StepVehicleModel {...commonProps} />;
+      case 5: return <StepDateRange {...commonProps} />;
+      case 6: return <StepSummary {...commonProps} />;
+      default: return null;
+    }
+  };
+
+  return (
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+      {renderStep()}
+    </div>
+  );
 };
 
 export default StepForm;
