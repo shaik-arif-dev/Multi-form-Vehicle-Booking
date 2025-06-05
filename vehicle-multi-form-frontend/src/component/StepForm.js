@@ -11,9 +11,11 @@ const StepForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
+    user: '',
     wheels: 4, // Default to 4 wheels
     vehicleType: '',
     vehicleId: '',
+    vehicleName: '',
     startDate: null,
     endDate: null
   });

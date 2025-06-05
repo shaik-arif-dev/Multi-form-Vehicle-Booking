@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Box, Typography, RadioGroup, FormControlLabel, Radio } from '@mui/material';
 
-const StepWheels = ({ nextStep, handleDataChange, data }) => {
+const StepWheels = ({ nextStep, handleDataChange, data, prevStep }) => {
   const [wheels, setWheels] = React.useState(data.wheels || 4);
 
   const handleChange = (event) => {
@@ -12,6 +12,11 @@ const StepWheels = ({ nextStep, handleDataChange, data }) => {
   const handleNext = () => {
     handleDataChange({ wheels });
     nextStep();
+  };
+
+  const handlePrev = () => {
+    handleDataChange({ wheels });
+    prevStep();
   };
 
   return (
@@ -42,7 +47,14 @@ const StepWheels = ({ nextStep, handleDataChange, data }) => {
         </RadioGroup>
       </Box>
 
-      <Box display="flex" justifyContent="flex-end">
+      <Box display="flex" justifyContent="space-between">
+        <Button
+          variant="outlined"
+          onClick={handlePrev}
+          sx={{ minWidth: '120px' }}
+        >
+          Back
+        </Button>
         <Button
           variant="contained"
           color="primary"

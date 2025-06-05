@@ -13,6 +13,14 @@ exports.createBooking = async (req, res) => {
       return res.status(404).json({ error: 'Vehicle not found' });
     }
 
+    // Ensure dates are in ISO format
+    if (startDate instanceof Date) {
+      startDate = startDate.toISOString();
+    }
+    if (endDate instanceof Date) {
+      endDate = endDate.toISOString();
+    }
+
     const overlappingBooking = await Booking.findOne({
       where: {
         vehicleId,

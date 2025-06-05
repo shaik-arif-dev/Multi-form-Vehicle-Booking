@@ -10,9 +10,14 @@ const validationSchema = Yup.object({
 
 const StepName = ({ nextStep, handleDataChange, data }) => {
   const handleSubmit = (values) => {
-    handleDataChange(values);
-    nextStep();
-  };
+   // In StepName.js
+     const user = `${values.firstName} ${values.lastName}`.trim();
+     handleDataChange({ 
+       ...values,
+       user  // Add the combined name to the form data
+     });
+     nextStep();
+   };
 
   return (
     <Formik

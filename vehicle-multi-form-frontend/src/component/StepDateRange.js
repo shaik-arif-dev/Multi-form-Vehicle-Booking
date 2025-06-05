@@ -62,7 +62,7 @@ const StepDateRange = ({ startDate, endDate, handleDataChange, nextStep, prevSte
           label="End Date"
           type="date"
           value={end}
-          handleDataChange={(e) => {
+          onChange={(e) => {
             setEnd(e.target.value);
             if (error) setError(validateDates(start, e.target.value));
           }}
