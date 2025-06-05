@@ -5,11 +5,14 @@ import StepForm from './component/StepForm';
 import AllBookings from './component/Bookings/AllBookings';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from './component/layout/Header';
 
 const Home = () => {
   const navigate = useNavigate();
   
   return (
+    <>
+    <Header />
     <Container maxWidth="sm">
       <h1 className="text-3xl font-bold text-center mt-6">Vehicle Booking System</h1>
       <Box display="flex" flexDirection="column" gap={2} mt={4} alignItems="center">
@@ -33,6 +36,7 @@ const Home = () => {
         </Button>
       </Box>
     </Container>
+    </>
   );
 };
 
@@ -43,7 +47,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/new-booking" element={
-          <Container maxWidth="sm">
+          <Container>
             <StepForm />
           </Container>
         } />

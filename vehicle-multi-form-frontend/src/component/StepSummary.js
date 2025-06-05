@@ -15,8 +15,10 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import { API_BASE } from '../services/api';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
-const StepSummary = ({ formData, prevStep, onSubmit }) => {
+const StepSummary = ({ formData, prevStep, onSubmit, resetForm }) => {
+  const navigate = useNavigate();
   if (!formData) return <Typography>No data to display.</Typography>;
 
 const handleSubmit = async () => {
@@ -53,8 +55,8 @@ const handleSubmit = async () => {
         draggable: true,
         progress: undefined,
       });
-      // Optionally reset form or redirect
-      // resetForm();
+      resetForm();
+      navigate('/bookings');
     }
   } catch (error) {
     console.error('Full error object:', error);

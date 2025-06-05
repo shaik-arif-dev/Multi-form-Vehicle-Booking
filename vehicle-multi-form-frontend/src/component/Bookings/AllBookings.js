@@ -13,6 +13,7 @@ import {
   Button
 } from '@mui/material';
 import { getAllBookings } from '../../services/api';
+import Header from '../layout/Header';
 
 const AllBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -53,7 +54,7 @@ const AllBookings = () => {
 
   return (
     <>
-    <Link to="/">Back to Home</Link>
+    <Header />
 
     <Box sx={{ p: 3, maxWidth: 1200, mx: 'auto' }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
